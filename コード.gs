@@ -32,8 +32,8 @@ switch (line.type) {
       break;
     case 'message': //message event
       var user_message = JSON.parse(e.postData.contents).events[0].message.text;  
-          var kanzen = /^ここにメッセージ$/; //自分は正規表現でメッセージを判別してます。この場合は最初の文字が「こ」で最後の文字が「ジ」の場合の「ここにメッセージ」を含むメッセージ、つまり完全に一致するメッセージの場合をif文で書いてます
-      if(kanzen.test(user_message)){ //正規表現はググれば結構出てくるのでそちらを参考に 〜を含むという場合は正規表現は不要です
+          var kokoni = /^ここにメッセージ$/; //自分は正規表現でメッセージを判別してます。この場合は最初の文字が「こ」で最後の文字が「ジ」の場合の「ここにメッセージ」を含むメッセージ、つまり完全に一致するメッセージの場合をif文で書いてます
+      if(kokoni.test(user_message)){ //正規表現はググれば結構出てくるのでそちらを参考に 〜を含むという場合は正規表現は不要です
         var url = 'https://api.line.me/v2/bot/message/reply';
         UrlFetchApp.fetch(url, {
           'headers': {
@@ -58,7 +58,7 @@ switch (line.type) {
 
 
 
-function push(){ //
+function push(){ //pushが使えるのはDeveloper Trialのみです
             var url = "https://api.line.me/v2/bot/message/push";
           var headers = {
             "Content-Type" : "application/json; charset=UTF-8",
@@ -66,7 +66,7 @@ function push(){ //
           };
           
           var postData = {
-            "to" : "ここに宛先のuserId", //この辺はリファレンスを参考にしてください
+            "to" : "ここに宛先のuserId", //この辺は公式のリファレンスを参考にしてください https://developers.line.me/ja/docs/messaging-api/reference/#anchor-0c00cb0f42b970892f7c3382f92620dca5a110fc
             "messages" : [
               {
                 'type':'text',
