@@ -25,7 +25,7 @@ switch (line.type) {
             'replyToken': reply_token,
             'messages': [{
               'type': 'text',
-              'text': "よろしく(＊╹◡╹)",
+              'text': "よろしく٩( 'ω' )و",
             }],
           }),
         });
